@@ -1,0 +1,11 @@
+.table.table-hover.table-bordered tr:hover {/* selector strong enough to overwrite bootsrap rule */
+  background:none;/* remove bg */
+}
+
+td:hover {
+  background: lightyellow;
+}
+
+.table td {
+  vertical-align: middle;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<style>
+  body{
+    text-align :center;
+  }
+  table, th, td {
+    padding: 15px;
+    border: 1px solid black;
+  }
+  .slidecontainer {
+    width: 100%;
+  }
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+</style>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>Repixelated</h1>
+<br />
+<br />
+<p>Welcome to repixelated app. Here you can create some pixel art with any picture. Just upload the image and choose the larger for the pixel. Enjoy !</p>
+<br />
+<br />
+<div class="table-responsive">
+  <table  class="table">
+    <thead class="table-success">
+      <tr>
+        <th>
+          Image
+        </th>
+        <th>
+          Options
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="4" width="60%">
+          <canvas #myCanvas style="border : 1px solid green;width:100%;"></canvas>
+        </td>
+        <td>
+          <input  style="display: none"  type="file" (change)="preview($event)"  accept="image/*"  #fileInput>
+          <button (click)="fileInput.click()">Select File</button>
+              <!--
+          <input type="file" (change)="preview($event)" accept="image/*">
+                -->
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input id="rangeInput" class="slider" type="range" value="1" min="1" max="200" oninput="amount.value=rangeInput.value" />
+        <p>Range slider: <input id="amount" type="number" style="font-weight:bold;color:red;width:20%;" oninput="rangeInput.value=amount.value" value="1"/></p>
+     
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>Name for the pixel art : <input type="text" value="{{outputName}}"[(ngModel)]="outputName"></p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn" style="width:100%" class="download"><i class="fa fa-download"></i> Download</button>
+        </td>
+      </tr>
+    <tbody>
+  </table>
+</div>
+</body>
+
+<script>
+</script>
+
+</html>
